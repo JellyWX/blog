@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-lg-2 d-none d-lg-block">
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-8">
+
+                    <h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Welcome!</h1>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+                    </div>
+
+                    <p class="lead text-center">All articles are available below:</p>
+
+                    <hr>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <a href="{{ url_for('articles', name='3d') }}" type="button" class="btn" style="width: 100%; height: 30vh; background-image: url('https://raw.githubusercontent.com/JellyWX/soundfx-bot/master/sound_fx_bot_logo.png'); background-position: center; background-size: cover;">
+                                    <p class="lead display-4 text-light">SoundFX Bot</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <a href="{{ url_for('articles', name='fusion') }}" type="button" class="btn" style="width: 100%; height: 30vh; background-image: url('{{ url_for('static', filename='img/fusion.png') }}'); background-position: center; background-size: contain; background-repeat: no-repeat">
+                                    <p class="lead display-4 text-dark">Fusion</p>
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <a href="https://sfx.jellywx.co.uk" type="button" class="btn" style="width: 100%; height: 30vh; background-image: url('https://raw.githubusercontent.com/JellyWX/soundfx-bot/master/sound_fx_bot_logo.png'); background-position: center; background-size: cover;">
+                                    <p class="lead display-4 text-light">SoundFX Bot</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <a href="{{ url_for('articles', name='reminder') }}" type="button" class="btn" style="width: 100%; height: 30vh; background-image: url('https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'); background-size: cover;">
+                                    <p class="lead display-4 text-light">Reminder Bot</p>
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+
+            </div>
+
+{% endblock %}
