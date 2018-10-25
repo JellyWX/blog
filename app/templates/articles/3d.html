@@ -1,0 +1,189 @@
+{% extends "article.html" %}
+{% block article %}
+
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.matrix {
+    position: relative;
+    display: inline-table;
+}
+.matrix:before, .matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    width: 6px;
+    height: 100%;
+}
+.matrix:before {
+    left: -6px;
+    border-right: 0px;
+}
+.matrix:after {
+    right: -6px;
+    border-left: 0px;
+}
+.matrix td {
+    padding: 5px;
+    text-align: center;
+}
+</style>
+
+<h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">3D With Pygame + Numpy</h1>
+
+<div class="d-flex justify-content-center">
+    <img src="https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+</div>
+
+<p class="lead">This is my first try at a tutorial-style thing, so please leave any feedback
+    for me in my Discord (linked above) or email it to me at judewrs@gmail.com</p>
+
+<h2>Introduction</h2>
+<br>
+
+<p class="lead">Speed isn't Python's speciality as a scripting-style language, and the capabilities for
+    3D are relatively limited. However, with learning how to use matrices to perform transformations
+    in a 3D space, I figured I'd try and pick up some python 2D packages and try and make something interesting.
+    And I did! It was much easier than I thought it'd be, and despite the result not being massively
+    impressive, it's a nice proof-of-concept.
+    <br>
+    <br>
+    For this tutorial, you'll need an understanding of Python. I'll be using Python 3, but other
+    versions are completely viable. You'll need to have Pygame and Numpy installed too. These can be installed with
+    ease using PIP
+    <br>
+    <br>
+    You might also want a basic understanding of Pygame and matrices, although this isn't necessary to follow the guide.
+
+    Ok, enough hassle. Let's get started!
+    <br>
+
+<h2>Initializing Pygame</h2>
+<br>
+
+<p class="lead">Initializing Pygame is the first step. By the end of this, we should have a black window.
+    <br>
+    <br>
+    First, we want to create a new Python file and create some constants for our screen to use:</p>
+
+    <pre><code class="python">
+WHITE = (255, 255, 255) # Color white in RGB
+BLACK = (0, 0, 0) # Color black in RGB
+
+WIDTH = 500 # Width of window in px
+HEIGHT = 500 # Height of window in px
+    </code></pre>
+
+<p class="lead">The two color definitions are for later, but the width and height definitions we'll use
+    right now. Add the import for pygame to the top of your file, and run the init() method:</p>
+
+    <pre><code class="python">
+import pygame
+
+# --snip--
+
+pygame.init()
+display = pygame.display
+surface = display.set_mode((WIDTH, HEIGHT))
+display.set_caption("3D Cube")
+    </code></pre>
+
+<p class="lead">We initialize pygame with <code>pygame.init()</code>, then grab
+    the display and a surface from the display that we can draw onto later. Now,
+    let's write some more code to make a window that's refreshing and can be repeatedly
+    drawn to:</p>
+
+    <pre><code class="python">
+from time import sleep
+
+# --snip--
+
+done = False
+
+while not done:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            done = True
+
+    display.flip()
+    sleep(1/45)
+
+# end while
+    </code></pre>
+
+<p class="lead">This code is some basic stub of a pygame program. The flag <var>done</var>
+    is used to quit the program if the user requests the program to quit, usually by
+    pressing the cross at the top of the window. The for loop checks for any recent
+    events that have occured, including key presses and other user actions.
+    <br>
+    <code>display.flip()</code> is used to update the surface and ensure all our instructions
+    we write are drawn to the screen. <code>sleep(1/45)</code> is used to prevent the program
+    cooking our computers! This does however lock the framerate of the program to 45.
+    <br>
+    At this point you should be able to run your program and be greeted with a black screen</p>
+    <br>
+    <br>
+
+<h2>Some Maths...</h2>
+
+<p class="lead">So, we have some of the basics down for making a screen. Now lets think
+    about how this is going to work. We're going to be using matrices to produce a cube in our window,
+    so let's talk about matrices. For starters, what are matrices? Here's an example:
+
+    <br>
+    <br>
+    <table class="matrix">
+        <tr>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    This matrix is known as the identity (<var>I</var>): multiplying it by any other matrix will yield the
+    other matrix, e.g:
+
+    <br>
+    <table class="matrix">
+        <tr>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+    x
+    <table class="matrix">
+        <tr>
+            <td>5</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>0</td>
+        </tr>
+    </table>
+    =
+    <table class="matrix">
+        <tr>
+            <td>5</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+
+{% endblock %}

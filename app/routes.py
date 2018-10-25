@@ -8,4 +8,4 @@ def index():
 
 @app.route('/articles/<name>')
 def articles(name):
-    return render_template('{}.html'.format(name))
+    return render_template('articles/{}.html'.format(name))
