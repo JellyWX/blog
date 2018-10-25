@@ -268,9 +268,9 @@ while not done:
     <br>
     But what about in 3D? Let's do some drawing...
     <br>
-    <img src="{{ url_for('static', filename='img/3d/Figure_2.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
-    <img src="{{ url_for('static', filename='img/3d/Figure_1.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
-    <img src="{{ url_for('static', filename='img/3d/Figure_3.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_2.png') }}" style="width: 25vw; height: 20vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_1.png') }}" style="width: 25vw; height: 20vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_3.png') }}" style="width: 25vw; height: 20vw; display: inline;"></img>
     <br>
     Look the same, right? They are, more or less. The axis labels are different however.
     The object drawn by the points is a 3D cube, and each graph is a plane at <i>z</i> = 0,
@@ -621,7 +621,7 @@ points = (
 pygame.draw.lines(surface, WHITE, True, render_points)
     </code></pre>
 
-<img src="{{ url_for('static', filename='img/3d/lines.png') }}"></img>
+<img src="{{ url_for('static', filename='img/3d/lines.png') }}" style="width: 30vw; height: 25vw;"></img>
 <p class="lead">Hmmm... not quite what we want. So let's work on doing it manually:</p>
 
     <pre><code class="python">
