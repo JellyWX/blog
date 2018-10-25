@@ -457,7 +457,7 @@ while not done:
     m = method(angle) * m</code> multiplies the set of points by the rotation we
     got from one of our generate functions. It's important that we don't use <code>
     m *= method(angle)</code>, because matrix multiplication is non-commutitive- the
-    order you multiply them is important. In fact, the code won't run if you put <code>
+    order you multiply them is important (i.e, <var>A</var>&times;<var>B</var> &ne; <var>B</var>&times;<var>A</var>). In fact, the code won't run if you put <code>
     *=</code> !
     <br>
     Let's start drawing.
@@ -621,6 +621,7 @@ points = (
 pygame.draw.lines(surface, WHITE, True, render_points)
     </code></pre>
 
+<img src="{{ url_for('static', filename='img/3d/lines.png') }}"></img>
 <p class="lead">Hmmm... not quite what we want. So let's work on doing it manually:</p>
 
     <pre><code class="python">
