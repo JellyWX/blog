@@ -8,7 +8,7 @@ def index():
 
 @app.route('/articles/<name>/')
 def articles(name):
-    return render_template('articles/{}.html'.format(name))
+    return render_template('articles/{}.html'.format(name), title=name.replace('_', ' ').title())
 
 @app.route('/articles/')
 def articles_re():
