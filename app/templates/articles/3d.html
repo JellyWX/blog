@@ -589,9 +589,151 @@ while not done:
     for x, y in render_points:
         pygame.draw.circle(surface, WHITE, (x, y), 2)
 
+    rotation[0] += pi / 100
+    rotation[1] += pi / 150
+
     display.flip()
     sleep(1/45)
-
     </code></pre>
+
+<p class="lead">Now let's make a cube. You can do this by changing the <code>points</code> tuple</p>
+
+    <pre><code class="python">
+points = (
+    ( 50,  50,  50),
+    (-50,  50,  50),
+    ( 50, -50,  50),
+    ( 50,  50, -50),
+    (-50,  50, -50),
+    ( 50, -50, -50),
+    (-50, -50, -50),
+    (-50, -50,  50),
+)
+    </code></pre>
+
+<p class="lead">Wonderful! Final step: let's replace the dots with some lines, to make a mesh.
+    Pygame has a function <code>draw.lines()</code>, so let's have a go with that. Put
+    this code at the bottom of your while loop, but above the <code>display.flip()</code>:</p>
+
+    <pre><code class="python">
+pygame.draw.lines(surface, WHITE, True, render_points)
+    </code></pre>
+
+<p class="lead">Hmmm... not quite what we want. So let's work on doing it manually:</p>
+
+    <pre><code class="python">
+for point in render_points:
+    for point_2 in render_points:
+        pygame.draw.line(surface, WHITE, point, point_2)
+    </code></pre>
+
+<p class="lead">Perfect! But inefficient. If you think, each point needs connecting
+    once to each other point. Currently, this code connects each point to itself and
+    every other point twice. Here's a better solution:</p>
+
+    <pre><code class="python">
+for p1 in range(len(render_points) - 1):
+    for p2 in render_points[p1 + 1:]:
+        pygame.draw.line(surface, WHITE, render_points[p1], p2)
+    </code></pre>
+
+<p class="lead">Better. This code connects the first point to the other 7, then the next
+    to the other 6 and so on, to prevent redoing lines.
+    </p>
+    <br>
+
+<h2>Some final improvements...</h2>
+
+<p class="lead">There's a couple of changes I made as I wrote this, and I'll outline
+    them all now. Here's the code I changed:
+    </p>
+
+    <pre><code class="python">
+import pygame
+from time import sleep
+from numpy import matrix
+from math import cos, sin, pi
+
+
+WHITE = (255, 255, 255) # Color white in RGB
+BLACK = (0, 0, 0) # Color black in RGB
+
+WIDTH = 500 # Width of window in px
+HEIGHT = 500 # Height of window in px
+
+pygame.init()
+display = pygame.display
+surface = display.set_mode((WIDTH, HEIGHT))
+display.set_caption("3D Cube")
+
+done = False
+
+points = matrix((
+    ( 50,  50,  50),
+    (-50,  50,  50),
+    ( 50, -50,  50),
+    ( 50,  50, -50),
+    (-50,  50, -50),
+    ( 50, -50, -50),
+    (-50, -50, -50),
+    (-50, -50,  50),
+)).transpose()
+
+rotation = [0, 0, 0]
+
+def generate_x(theta):
+    return matrix([
+        [1, 0, 0],
+        [0, cos(theta), -sin(theta)],
+        [0, sin(theta), cos(theta)]
+    ])
+
+def generate_y(theta):
+    return matrix([
+        [cos(theta), 0, -sin(theta)],
+        [0, 1, 0],
+        [sin(theta), 0, cos(theta)]
+    ])
+
+def generate_z(theta):
+    return matrix([
+        [cos(theta), -sin(theta), 0],
+        [sin(theta), cos(theta), 0],
+        [0, 0, 1]
+    ])
+
+while not done:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            done = True
+
+    pygame.draw.rect(surface, BLACK, pygame.Rect(0, 0, WIDTH, HEIGHT))
+
+    p = points.copy()
+
+    for method, angle in zip((generate_x, generate_y, generate_z), rotation):
+        p = method(angle) * p
+
+    render_points = (WIDTH/2 + p.transpose()).tolist()
+
+    for p1 in range(len(render_points) - 1):
+        for p2 in render_points[p1 + 1:]:
+            pygame.draw.line(surface, WHITE, render_points[p1][:2], p2[:2])
+
+
+    rotation[0] += pi / 100
+    rotation[1] += pi / 150
+
+    display.flip()
+    sleep(1/45)
+    </code></pre>
+
+<p class="lead">The changes I made are that I changed the points tuple into a matrix.
+    I transpose it to be of proper dimensions for multiplying.
+    Then, I copy the set of points to the variable <var>p</var> in the loop.
+    This is so we don't end up modifying the actual matrix of original points. We
+    then multiply it by the rotations, and add the scalar of half the width to center
+    the shape. Then we draw the lines as normal, and we use the splice <code>
+    [:2]</code> to only select the x and y point of the shape.</p>
 
 {% endblock %}
