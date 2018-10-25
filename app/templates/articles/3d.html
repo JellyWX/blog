@@ -4,7 +4,10 @@
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
 <script>hljs.initHighlightingOnLoad();</script>
+
 <style>
 .matrix {
     position: relative;
@@ -162,7 +165,7 @@ while not done:
             <td>1</td>
         </tr>
     </table>
-    x
+    &times;
     <table class="matrix">
         <tr>
             <td>5</td>
@@ -184,6 +187,411 @@ while not done:
             <td>0</td>
         </tr>
     </table>
+    <br>
+    <br>
 
+    It's equivalent to multiplying a number by 1.
+    <br>
+    All sorts of operations can be performed on matrices, but we're only going to
+    need multiplication to do what we're doing. You don't need to know how to multiply
+    matrices, because Numpy does it for us, but you can read about it
+    <a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">here</a>.
+    <br>
+    <br>
+    What we <em>do</em> want to know however, is how to perform a transformation with
+    matrices. In 2D space, we use a 2&times;2 (rows &times; columns) matrix to perform transformations.
+    We represent each 2D point in a vector, structured
+    <br>
+    <br>
+    P =
+    <table class="matrix">
+        <tr>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>y</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    Given a transformation matrix:
+
+    <br>
+    <br>
+    M =
+    <table class="matrix">
+        <tr>
+            <td>a</td>
+            <td>b</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>d</td>
+        </tr>
+    </table>
+    <br><br>
+
+    M &times; P =
+    <table class="matrix">
+        <tr>
+            <td>ax + by</td>
+        </tr>
+        <tr>
+            <td>cx + dy</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    Great... but what can we do with this? There's a lot of different possible
+    transformations given a 2&times;2 matrix, but we're only bothered about rotation.
+    And luckily for us, rotation has a generalized form!
+
+    <br>
+    <br>
+    M =
+    <table class="matrix">
+        <tr>
+            <td>cos &theta;</td>
+            <td>-sin &theta;</td>
+        </tr>
+        <tr>
+            <td>sin &theta;</td>
+            <td>cos &theta;</td>
+        </tr>
+    </table>
+    <br>
+    ... where &theta; (Theta) is the angle we want to rotate by (anticlockwise). We
+    can then multiply a set of points by this matrix to produce a rotated image.
+    <br>
+    <br>
+    But what about in 3D? Let's do some drawing...
+    <br>
+    <img src="{{ url_for('static', filename='img/Figure_2.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/Figure_1.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/Figure_3.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <br>
+    Look the same, right? They are, more or less. The axis labels are different however.
+    The object drawn by the points is a 3D cube, and each graph is a plane at <i>z</i> = 0,
+    <i>y</i> = 0, and <i>x</i> = 0 respectively.
+    <br>
+    So, knowing this, we can produce 3 different rotation matrices to represent the 3D rotations.
+    Then, we can chain these transformations to produce our final image! Let's look
+    at the first graph:
+    <br>
+    Our overall matrix is of format
+    <br>
+    <br>
+    <table class="matrix">
+        <tr>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>y</td>
+            <td>y</td>
+            <td>y</td>
+        </tr>
+        <tr>
+            <td>z</td>
+            <td>z</td>
+            <td>z</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    So, since we're rotating around the <i>z</i> axis, our <i>z</i> coordinates
+    won't change and also won't affect the rest of the transformation. Therefore,
+    our new transformation matrix for a rotation around <i>z</i> will look like
+    so:
+    <br>
+    <br>
+    <table class="matrix">
+        <tr>
+            <td>cos &theta;</td>
+            <td>-sin &theta;</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>sin &theta;</td>
+            <td>cos &theta;</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    Let's quickly produce the others:
+    <br>
+    <table class="matrix">
+        <tr>
+            <td>cos &theta;</td>
+            <td>0</td>
+            <td>-sin &theta;</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>sin &theta;</td>
+            <td>0</td>
+            <td>cos &theta;</td>
+        </tr>
+    </table>
+    <table class="matrix">
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>cos &theta;</td>
+            <td>-sin &theta;</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>sin &theta;</td>
+            <td>cos &theta;</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    Great! Now let's get back to coding.</p>
+    <br>
+
+<h2>Some Modularity</h2>
+
+<p class="lead">With this maths, we're going to use Numpy to make some functions
+    to help us in a bit. Here's our 3 functions we're going to need:</p>
+
+    <pre><code class="python">
+import pygame
+from numpy import matrix
+from math import cos, sin, pi
+
+# --snip--
+
+def generate_x(theta):
+    return matrix([
+        [1, 0, 0],
+        [0, cos(theta), -sin(theta)],
+        [0, sin(theta), cos(theta)]
+    ])
+
+def generate_y(theta):
+    return matrix([
+        [cos(theta), 0, -sin(theta)],
+        [0, 1, 0],
+        [sin(theta), 0, cos(theta)]
+    ])
+
+def generate_z(theta):
+    return matrix([
+        [cos(theta), -sin(theta), 0],
+        [sin(theta), cos(theta), 0],
+        [0, 0, 1]
+    ])
+
+while not done:
+    ...
+    </code></pre>
+
+<p class="lead">These functions make us matrices that represent our rotations in whatever angle we need.
+    Let's also define some variables:</p>
+
+    <pre><code class="python">
+points = (
+    (   0,   0,   0),
+    ( 100,   0,   0),
+    (   0, 100,   0),
+    (   0,   0, 100),
+)
+
+rotation = [0, 0, 0]
+    </code></pre>
+
+<p class="lead">These variables define a set of points in format (x, y, z) and the rotation we want to
+    apply. Now let's start writing some logic!</p>
+
+    <pre><code class="python">
+while not done:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            done = True
+
+    render_points = []
+
+    # for each point...
+    for p in points:
+
+        # make a vector of the 3 pieces (x, y, z)
+        m = matrix([
+            [p[0]],
+            [p[1]],
+            [p[2]],
+        ])
+
+        # apply every rotation
+        for method, angle in zip((generate_x, generate_y, generate_z), rotation):
+            # multiply the vector out to chain the rotations
+            m = method(angle) * m
+
+    display.flip()
+    sleep(1/45)
+
+    </code></pre>
+
+<p class="lead">The above code is commented and contains the basis of the maths.
+    The <code>zip()</code> function combines two lists, so we can unpack them in
+    the for loop as <code>method</code> and <code>angle</code>. The line <code>
+    m = method(angle) * m</code> multiplies the set of points by the rotation we
+    got from one of our generate functions. It's important that we don't use <code>
+    m *= method(angle)</code>, because matrix multiplication is non-commutive- the
+    order you multiply them is important. In fact, the code won't run if you put <code>
+    *=</code> !
+    <br>
+    Let's start drawing.
+    </p>
+
+    <pre><code class="python">
+
+for p in points:
+
+    # make a vector of the 3 pieces (x, y, z)
+    m = matrix([
+        [p[0]],
+        [p[1]],
+        [p[2]],
+    ])
+
+    # apply every rotation
+    for method, angle in zip((generate_x, generate_y, generate_z), rotation):
+        # multiply the vector out to chain the rotations
+        m = method(angle) * m
+
+    # turn it to an int and displace it from the center of the screen
+    x, y = map(lambda x: int(WIDTH/2 - x), (m[0,0], m[1,0]))
+
+    # add it to the list of points to draw
+    render_points.append((x, y))
+
+# for each drawing point...
+for x, y in render_points:
+    # draw a circle radius=2
+    pygame.draw.circle(surface, WHITE, (x, y), 2)
+
+rotation[0] += pi / 100
+rotation[1] += pi / 150
+
+display.flip()
+    </code></pre>
+
+<p class="lead">Now you can run it! You'll end up with some dots but they leave trails. Let's fix that!</p>
+
+    <pre><code class="python">
+while not done:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            done = True
+
+    # clear the screen with blackness
+    pygame.draw.rect(surface, BLACK, pygame.Rect(0, 0, WIDTH, HEIGHT))
+
+    render_points = []
+    </code></pre>
+
+<p class="lead">Much better! At this point, our full code should look something like this...</p>
+
+    <pre><code class="python">
+import pygame
+from time import sleep
+from numpy import matrix
+from math import cos, sin, pi
+
+
+WHITE = (255, 255, 255) # Color white in RGB
+BLACK = (0, 0, 0) # Color black in RGB
+
+WIDTH = 500 # Width of window in px
+HEIGHT = 500 # Height of window in px
+
+pygame.init()
+display = pygame.display
+surface = display.set_mode((WIDTH, HEIGHT))
+display.set_caption("3D Cube")
+
+done = False
+
+points = (
+    (   0,   0,   0),
+    ( 100,   0,   0),
+    (   0, 100,   0),
+    (   0,   0, 100),
+)
+
+rotation = [0, 0, 0]
+
+def generate_x(theta):
+    return matrix([
+        [1, 0, 0],
+        [0, cos(theta), -sin(theta)],
+        [0, sin(theta), cos(theta)]
+    ])
+
+def generate_y(theta):
+    return matrix([
+        [cos(theta), 0, -sin(theta)],
+        [0, 1, 0],
+        [sin(theta), 0, cos(theta)]
+    ])
+
+def generate_z(theta):
+    return matrix([
+        [cos(theta), -sin(theta), 0],
+        [sin(theta), cos(theta), 0],
+        [0, 0, 1]
+    ])
+
+while not done:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            done = True
+
+    pygame.draw.rect(surface, BLACK, pygame.Rect(0, 0, WIDTH, HEIGHT))
+
+    render_points = []
+
+    for p in points:
+
+        m = matrix([
+            [p[0]],
+            [p[1]],
+            [p[2]],
+        ])
+
+        for method, angle in zip((generate_x, generate_y, generate_z), rotation):
+            m = method(angle) * m
+
+        x, y = map(lambda x: int(WIDTH/2 - x), (m[0,0], m[1,0]))
+
+        render_points.append((x, y))
+
+    for x, y in render_points:
+        pygame.draw.circle(surface, WHITE, (x, y), 2)
+
+    display.flip()
+    sleep(1/45)
+
+    </code></pre>
 
 {% endblock %}
