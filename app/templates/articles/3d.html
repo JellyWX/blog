@@ -38,7 +38,7 @@
 <h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">3D With Pygame + Numpy</h1>
 
 <div class="d-flex justify-content-center">
-    <img src="https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+    <img src="{{ url_for('static', filename='img/3d/icon.png') }}" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
 </div>
 
 <p class="lead">This is my first try at a tutorial-style thing, so please leave any feedback
@@ -268,9 +268,9 @@ while not done:
     <br>
     But what about in 3D? Let's do some drawing...
     <br>
-    <img src="{{ url_for('static', filename='img/Figure_2.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
-    <img src="{{ url_for('static', filename='img/Figure_1.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
-    <img src="{{ url_for('static', filename='img/Figure_3.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_2.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_1.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
+    <img src="{{ url_for('static', filename='img/3d/Figure_3.png') }}" style="width: 20vw; height: 15vw; display: inline;"></img>
     <br>
     Look the same, right? They are, more or less. The axis labels are different however.
     The object drawn by the points is a 3D cube, and each graph is a plane at <i>z</i> = 0,
@@ -456,7 +456,7 @@ while not done:
     the for loop as <code>method</code> and <code>angle</code>. The line <code>
     m = method(angle) * m</code> multiplies the set of points by the rotation we
     got from one of our generate functions. It's important that we don't use <code>
-    m *= method(angle)</code>, because matrix multiplication is non-commutive- the
+    m *= method(angle)</code>, because matrix multiplication is non-commutitive- the
     order you multiply them is important. In fact, the code won't run if you put <code>
     *=</code> !
     <br>
@@ -497,6 +497,7 @@ display.flip()
     </code></pre>
 
 <p class="lead">Now you can run it! You'll end up with some dots but they leave trails. Let's fix that!</p>
+<img src="{{ url_for('static', filename='img/3d/trails.png') }}" style="width: 30vw; height: 30vw;"></img>
 
     <pre><code class="python">
 while not done:
@@ -510,6 +511,7 @@ while not done:
     render_points = []
     </code></pre>
 
+<img src="{{ url_for('static', filename='img/3d/dot.png') }}" style="width: 30vw; height: 30vw;"></img>
 <p class="lead">Much better! At this point, our full code should look something like this...</p>
 
     <pre><code class="python">
@@ -735,5 +737,17 @@ while not done:
     then multiply it by the rotations, and add the scalar of half the width to center
     the shape. Then we draw the lines as normal, and we use the splice <code>
     [:2]</code> to only select the x and y point of the shape.</p>
+    <br>
+    <br>
+
+<p class="lead">And this concludes the guide! Thank you for reading and I
+    hope you learnt something interesting in the process. This is a first for me,
+    and it feels a little rushed but I hope you can all make enough sense of it.
+    If you have feedback for me, I'm opening a new channel in the Discord linked
+    in the navbar for discussing the blog in general. Otherwise, if you have any
+    comments, you can place them in the issues tracker on <a href="https://github.com/jellywx/blog">GitHub</a>
+    or email me at <a href="mailto:judewrs@gmail.com">judewrs@gmail.com</a>.
+    <br>
+    Thank you!</p>
 
 {% endblock %}
