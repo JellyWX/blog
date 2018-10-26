@@ -137,46 +137,6 @@ while not done:
     so let's talk about matrices. For starters, what are matrices? Here's an example:
 
     <br>
-    <br>
-    <table class="matrix">
-        <tr>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>1</td>
-        </tr>
-    </table>
-    <br>
-    <br>
-
-    This matrix is known as the identity (<var>I</var>): multiplying it by any other matrix will yield the
-    other matrix, e.g:
-
-    <br>
-    <table class="matrix">
-        <tr>
-            <td>1</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>1</td>
-        </tr>
-    </table>
-    &times;
-    <table class="matrix">
-        <tr>
-            <td>5</td>
-            <td>14</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>0</td>
-        </tr>
-    </table>
-    =
     <table class="matrix">
         <tr>
             <td>5</td>
@@ -188,10 +148,14 @@ while not done:
         </tr>
     </table>
     <br>
+
+    This Matrix is known as a 2&times;2 matrix (that's <code>rows&times;columns</code>).
+    When multiplying matrices, there's a rule you need to follow: the amount of <em>columns</em>
+    on the first matrix must match the amount of <em>rows</em> on the second matrix
+    (I think of this as <var>RC&times;RC</var>; see the <var>C</var> and <var>R</var> are
+    next to each other across the multiplication sign)
     <br>
 
-    It's equivalent to multiplying a number by 1.
-    <br>
     All sorts of operations can be performed on matrices, but we're only going to
     need multiplication to do what we're doing. You don't need to know how to multiply
     matrices, because Numpy does it for us, but you can read about it
@@ -231,6 +195,8 @@ while not done:
         </tr>
     </table>
     <br><br>
+
+    our ending points will be:
 
     M &times; P =
     <table class="matrix">
@@ -276,9 +242,9 @@ while not done:
     The object drawn by the points is a 3D cube, and each graph is a plane at <i>z</i> = 0,
     <i>y</i> = 0, and <i>x</i> = 0 respectively.
     <br>
-    So, knowing this, we can produce 3 different rotation matrices to represent the 3D rotations.
-    Then, we can chain these transformations to produce our final image! Let's look
-    at the first graph:
+    So, knowing this, we can produce 3 different rotation matrices in 2D to represent the
+    full rotation in 3D. Then, we can chain these transformations to produce our
+    final image! Let's look at the first graph:
     <br>
     Our overall matrix is of format
     <br>
