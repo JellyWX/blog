@@ -598,7 +598,9 @@ while not done:
     sleep(1/45)
     </code></pre>
 
-<p class="lead">Now let's make a cube. You can do this by changing the <code>points</code> tuple</p>
+<p class="lead">Now let's make a cube. You can do this by changing the <code>points</code> tuple.
+    Each row represents a point in a 3D space, but whilst our maths uses all the
+    points, we only render using the X and Y value.</p>
 
     <pre><code class="python">
 points = (
@@ -641,7 +643,7 @@ for p1 in range(len(render_points) - 1):
     </code></pre>
 
 <p class="lead">Better. This code connects the first point to the other 7, then the next
-    to the other 6 and so on, to prevent redoing lines.
+    to the other 6 and so on, to prevent redrawing lines.
     </p>
     <br>
 
