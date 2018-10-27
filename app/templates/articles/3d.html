@@ -702,7 +702,9 @@ while not done:
 <p class="lead">The changes I made are that I changed the points tuple into a matrix.
     I transpose it to be of proper dimensions for multiplying.
     Then, I copy the set of points to the variable <var>p</var> in the loop.
-    This is so we don't end up modifying the actual matrix of original points. We
+    This is so we don't end up modifying the actual matrix of original points. In
+    practice, copying data isn't usually a good idea since it consumes extra memory
+    and uses resources in copying the resource, however for this example it's okay. We
     then multiply it by the rotations, and add the scalar of half the width to center
     the shape. Then we draw the lines as normal, and we use the splice <code>
     [:2]</code> to only select the x and y point of the shape.</p>
