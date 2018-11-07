@@ -1,0 +1,51 @@
+{% extends "article.html" %}
+{% block article %}
+
+<style>
+
+body {
+    font-size: 1.5em;
+}
+
+</style>
+
+<h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Files with Python</h1>
+
+<div class="d-flex justify-content-center">
+    <img src="{{ url_for('static', filename='img/.png') }}" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+</div>
+
+<h2>Introduction</h2>
+<p>Files, or some sort of 'persistent', non-volatile storage are key
+    to the wide majority of applications. Python provides many ways to store different
+    types of data in files that remain on the system after the program shuts down.</p>
+
+<h2>Opening a File</h2>
+<p>Before using a file, it must be opened in an <strong>explicit
+    mode</strong>. Basically, you have to tell Python how to open the file- it can't
+    decide for you. There's 3 modes you can open a file in:
+
+    <ul>
+        <li>Read</li>
+        <li>Write</li>
+        <li>Append</li>
+    </ul>
+
+<br>
+<h2>Read Mode</h2>
+    <strong>Read</strong> mode allows you to take data from the file without changing it.
+
+
+<br>
+<h2>Write Mode</h2>
+    <strong>Write</strong> mode allows you to completely remake a file from scratch.
+
+
+<br>
+<h2>Append Mode</h2>
+    <strong>Append</strong> mode allows you to add data to the end of a file.</p>
+
+
+<br>
+<br>
+{% endblock %}
