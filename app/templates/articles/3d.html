@@ -47,8 +47,8 @@
     impressive, it's a nice proof-of-concept.
     <br>
     <br>
-    For this tutorial, you'll need an understanding of Python. I'll be using Python 3, but other
-    versions are completely viable. You'll need to have Pygame and Numpy installed too. These can be installed with
+    For this guide, you'll need an understanding of Python. I'll be using Python 3, but other
+    versions are viable. You'll need to have Pygame and Numpy installed too. These can be installed with
     ease using PIP
     <br>
     <br>
@@ -87,10 +87,10 @@ surface = display.set_mode((WIDTH, HEIGHT))
 display.set_caption("3D Cube")
     </code></pre>
 
-<p class="lead">We initialize pygame with <code>pygame.init()</code>, then grab
-    the display and a surface from the display that we can draw onto later. Now,
+<p class="lead">We start pygame with <code>pygame.init()</code>, then create
+    the display and obtain a surface from the display that we can draw onto later. Now,
     let's write some more code to make a window that's refreshing and can be repeatedly
-    drawn to:</p>
+    drawn to, since otherwise our window would never change:</p>
 
     <pre><code class="python">
 from time import sleep
@@ -100,8 +100,8 @@ from time import sleep
 done = False
 
 while not done:
-    for e in pygame.event.get():
-        if e.type == pygame.QUIT:
+    for e in pygame.event.get(): # for every event on the window (mouse click, keyboard press..)
+        if e.type == pygame.QUIT: # if the event is a 'quit' signal (the user presses the cross)
             done = True
 
     display.flip()
@@ -115,9 +115,9 @@ while not done:
     pressing the cross at the top of the window. The for loop checks for any recent
     events that have occured, including key presses and other user actions.
     <br>
-    <code>display.flip()</code> is used to update the surface and ensure all our instructions
+    <code>display.flip()</code> is used to update the display and ensure all our instructions
     we write are drawn to the screen. <code>sleep(1/45)</code> is used to prevent the program
-    cooking our computers! This does however lock the framerate of the program to 45.
+    cooking our computers by locking the framerate of the program to 45Hz.
     <br>
     At this point you should be able to run your program and be greeted with a black screen</p>
     <br>
@@ -292,7 +292,7 @@ while not done:
         <tr>
             <td>cos &theta;</td>
             <td>0</td>
-            <td>-sin &theta;</td>
+            <td>sin &theta;</td>
         </tr>
         <tr>
             <td>0</td>
@@ -300,7 +300,7 @@ while not done:
             <td>0</td>
         </tr>
         <tr>
-            <td>sin &theta;</td>
+            <td>-sin &theta;</td>
             <td>0</td>
             <td>cos &theta;</td>
         </tr>
@@ -706,9 +706,9 @@ while not done:
 
 <p class="lead">And this concludes the guide! Thank you for reading and I
     hope you learnt something interesting in the process. This is a first for me,
-    and it feels a little rushed but I hope you can all make enough sense of it.
+    and it feels a little rushed but I hope you can make enough sense of it.
     If you have feedback for me, I'm opening a new channel in the Discord linked
-    in the navbar for discussing the blog in general. Otherwise, if you have any
+    in the top bar for discussing the blog in general. Otherwise, if you have any
     comments, you can place them in the issues tracker on <a href="https://github.com/jellywx/blog">GitHub</a>
     or email me at <a href="mailto:judewrs@gmail.com">judewrs@gmail.com</a>.
     <br>
