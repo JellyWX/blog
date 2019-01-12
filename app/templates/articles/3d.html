@@ -366,7 +366,9 @@ while not done:
     </code></pre>
 
 <p class="lead">These functions make us matrices that represent our rotations in the
-    angle <code>theta</code>. Let's also define some variables:</p>
+    angle <code>theta</code> about the origin. If we wanted to rotate about some other 
+    point, we may need to translate (move) the shape's vertices around first, rotate, 
+    and then move back. Let's define some variables:</p>
 
     <pre><code class="python">
 points = (
@@ -415,7 +417,7 @@ while not done:
     the for loop as <code>method</code> and <code>angle</code>. The line <code>
     m = method(angle) * m</code> multiplies the set of points by the rotation we
     got from one of our generate functions. It's important that we don't use <code>
-    m *= method(angle)</code>, because matrix multiplication is non-commutitive- the
+    m *= method(angle)</code>, because matrix multiplication is non-commutative- the
     order you multiply them is important (i.e, <var>A</var>&times;<var>B</var> &ne; <var>B</var>&times;<var>A</var>). In fact, the code won't run if you put <code>
     *=</code> !
     <br>
