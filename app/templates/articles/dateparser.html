@@ -1,0 +1,42 @@
+{% extends "article.html" %}
+{% block article %}
+
+<h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Reminder Bot Dateparser</h1>
+<br>
+<br>
+<br>
+<br>
+<p class="lead">The Reminder Bot Dateparser, developed under BSD-3-Clause by
+    <a href="https://github.com/scrapinghub">scrapinghub</a>, is now available
+    <strong>no-install</strong> from our <strong>unlimited</strong> API. This is
+    the same algorithm used by the <code>$natural</code> command.<br>
+
+    The API may become limited in the future.<br>
+
+    <br>
+    <em>URL: <code>https://dateparser.reminder-bot.com</code></em><br>
+    Params (as JSON): 
+    <ul>
+        <li>
+            <code>content</code> <em>Required</em> Specify the string to be converted.
+        </li>
+        <li>
+            <code>timezone</code> Take input as specified timezone
+        </li>
+        <li>
+            <code>to_timezone</code> Convert output to specified timezone
+        </li>
+    </ul>
+
+    This matches up to the docs available <a href="https://dateparser.readthedocs.io/en/latest/">here.</a><br><br>
+
+    Example (Python 3):<br><br>
+
+    <pre><code class="python">import requests
+
+response = requests.post('https://dateparser.reminder-bot.com/', json={'content': 'The 5th of December 2019', 'timezone': 'Europe/Paris'})
+
+assert response.json() == {'result': 1575500400.0} # Time returned as a UNIX timestamp (seconds)</code></pre>
+    </p>
+
+{% endblock %}
