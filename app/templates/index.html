@@ -22,67 +22,25 @@
 
                     <hr>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <a href="https://reminder-bot.com/updates/blatant.md" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('{{ url_for('static', filename='img/dateparser.png') }}'); background-position: center; background-size: cover;">
-                                        <p class="lead display-4 text-light">Dateparser API</p>
+                        {% for article1, article2 in articles %}
+                            <div class="row">
+                                {% for article in (article1, article2) %}
+                                    <div class="col-lg-6 col-12">
+                                        <a href="{{ article.href or url_for('articles', name=article.html) }}" class="btn" style="width: 100%; height: 30vh; padding: 0;">
+                                            {% if article.image.startswith('https') %}
+                                            <div style="width: 100%; height: 100%; background-image: url('{{ article.image }}'); background-position: center; background-size: cover;">
+                                            {% else %}
+                                            <div style="width: 100%; height: 100%; background-image: url('{{ url_for('static', filename='img/{}'.format(article.image)) }}'); background-position: center; background-size: cover;">
+                                            {% endif %}
+                                                <p class="lead display-4 {{ article.color }}">{{ article.name }}</p>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
+                                {% endfor %}
                             </div>
-                            <div class="col-lg-6 col-12">
-                                <a href="https://reminder-bot.com/updates/blatant.md" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'); background-position: center; background-size: cover;">
-                                        <p class="lead display-4 text-light">Update B</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <a href="https://reminder-bot.com/updates/acrobatic.md" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/reminder-bot/logos/master/reminder-bot-winter.png'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-                                        <p class="lead display-4 text-dark">Update A</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <a href="{{ url_for('articles', name='3d') }}" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('{{ url_for('static', filename='img/3d/button.png') }}'); background-position: center; background-size: cover;">
-                                        <p class="lead display-4 text-light">3D Pygame Tutorial</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <a href="{{ url_for('articles', name='fusion') }}" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('{{ url_for('static', filename='img/fusion.png') }}'); background-position: center; background-size: contain; background-repeat: no-repeat;">
-                                        <p class="lead display-4 text-dark">Fusion</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <a href="https://soundfx.jellywx.com" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/JellyWX/soundfx-bot/master/sound_fx_bot_logo.png'); background-position: center; background-size: cover;">
-                                        <p class="lead display-4 text-light">SoundFX Help</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <a href="{{ url_for('articles', name='reminder') }}" class="btn" style="width: 100%; height: 30vh; padding: 0;">
-                                    <div style="width: 100%; height: 100%; background-image: url('https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg'); background-size: cover;">
-                                        <p class="lead display-4 text-light">Reminder Bot</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <br>
+                            <br>
+                        {% endfor %}
                     </div>
 
                 </div>

@@ -1,0 +1,58 @@
+[
+    {
+        "href": null,
+        "html": "random.html",
+        "image": "prng.png",
+        "color": "text-light",
+        "name": "PRNG with the LMC"
+    },
+    {
+        "href": null,
+        "html": "dateparser.html",
+        "image": "dateparser.png",
+        "color": "text-light",
+        "name": "Dateparser API"
+    },
+    {
+        "href": "https://reminder-bot.com/updates/blatant.md",
+        "html": null,
+        "image": "https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg",
+        "color": "text-light",
+        "name": "Update B"
+    },
+    {
+        "href": "https://reminder-bot.com/updates/acrobatic.md",
+        "html": null,
+        "image": "https://raw.githubusercontent.com/reminder-bot/logos/master/reminder-bot-winter.png",
+        "color": "text-light",
+        "name": "Update A"
+    },
+    {
+        "href": null,
+        "html": "3d.html",
+        "image": "3d/button.png",
+        "color": "text-light",
+        "name": "3D Pygame Tutorial"
+    },
+    {
+        "href": null,
+        "html": "fusion.html",
+        "image": "fusion.png",
+        "color": "text-dark",
+        "name": "Fusion"
+    },
+    {
+        "href": "https://soundfx.jellywx.com",
+        "html": null,
+        "image": "https://raw.githubusercontent.com/JellyWX/soundfx-bot/master/sound_fx_bot_logo.png",
+        "color": "text-light",
+        "name": "SoundFX Bot"
+    },
+    {
+        "href": null,
+        "html": "reminder.html",
+        "image": "https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg",
+        "color": "text-light",
+        "name": "Reminder Bot"
+    }
+]
