@@ -43,6 +43,34 @@
 
     </math>
 
-    <p class="lead"></p>
+<p class="lead">This can be fairly easily implemented in Python using the following logic, where <var>rice_gain</var> is the <var>R</var> value:</p>
+
+<pre><code class="python">total_rice = sum([rice_gain**n for n in range(grid_length**2)])</code></pre>
+
+<p class="lead">Unfortunately, this is fairly slow when dealing with large numbers. The number of operations increases rapidly as the grid size increases.
+    However, using some knowledge of sequences and series, it is possible to reduce this to a nicer relationship.<br>
+    Our series we have above is:</p>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
+
+        <msub>
+            <mn>U</mn>
+            <mrow><mn>n</mn><mo>+</mo><mn>1</mn></mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+            <mn>U</mn>
+            <mn>n</mn>
+        </msub>
+        <mo>+</mo>
+        <msup>
+            <mn>R</mn>
+            <mn>n</mn>
+        </msup>
+
+    </math>
+
+<p class="lead">This sequence is non-homogenous, which isn't useful. However, we can convert this into a homogenous sequence, whereby we can then calculate a term
+    independently of any previous terms except an initial condition.</p>
 
 {% endblock %}
