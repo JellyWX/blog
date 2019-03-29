@@ -1,0 +1,48 @@
+{% extends "article.html" %}
+{% block article %}
+
+<script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Effective Riceboard</h1>
+
+<div class="d-flex justify-content-center">
+    <img src="{{ url_for('static', filename='img/riceboard.png') }}" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+</div>
+
+<h2>Effective Completion of the Riceboard</h2>
+
+<p class="lead">The Riceboard is a theoretical problem which is detailed as the following:</p>
+
+<p style="font-family: monospace;">A checker board of <var>N</var>&times;<var>N</var> tiles is filled with rice.
+    The first tile has 1 grain of rice. The second tile has <var>R</var> grains of rice. The third tile has 
+    <var>R</var>&times;<var>R</var> grains of rice and so on. Then, all the rice on the board is placed into bags
+    of size <var>M</var>. How much rice is left over following any number of bags being filled completely?</p>
+
+<p class="lead">The problem has quite an obvious solution once abstracted from the physical concept down to mathematical operations.
+    The first tile has <var>R<sup>0</sup></var> grains of rice, since no matter the value of <var>R</var>, <var>R</var> to the zero will
+    be 1. The second tile has <var>R<sup>1</sup></var>. The third tile has <var>R<sup>2</sup></var>, fourth has <var>R<sup>3</sup></var>
+    and so on. Therefore, our total for the grains of rice is </p>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
+
+        <munderover>
+            <mo>&sum;</mo>
+            <mrow>
+                <mi>x</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+            </mrow>
+            <mrow>
+                <msup><mi>N</mi><mn>2</mn></msup><mo>-</mo><mn>1</mn>
+            </mrow>
+        </munderover>
+        <msup><mi>R</mi><mn>x</mn></msup>
+        <mo>=</mo>
+        <mn>T</mn>
+
+    </math>
+
+    <p class="lead"></p>
+
+{% endblock %}
