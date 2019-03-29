@@ -70,7 +70,40 @@
 
     </math>
 
-<p class="lead">This sequence is non-homogenous, which isn't useful. However, we can convert this into a homogenous sequence, whereby we can then calculate a term
-    independently of any previous terms except an initial condition.</p>
+<p class="lead">This sequence is a linear recurrence relation, which isn't useful for calculating a single desired value. However, we can convert this
+    into a function in terms of <var>n</var>, through which we can then calculate a term independently of any previous terms besides an initial condition.
+    To do this we must 'solve' the linear recurrence relationship.</p>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
+
+        <mtext mathsize="small">Determine a complementary function based on the coefficient of <msub mathsize="small"><mn>U</mn><mn>n</mn></msub></mtext>
+        <mspace linebreak='newline'>
+
+        <mrow>
+            <msub>
+                <mn>Uc</mn>
+                <mn>n</mn>
+            </msub>
+            <mo>=</mo>
+            <mn>k</mn>
+            <mo>&times;</mo>
+            <msup>
+                <mn>1</mn>
+                <mn>n</mn>
+            </msup>
+        </mrow>
+
+        <mspace linebreak='newline'>
+
+        <mrow>
+            <msub>
+                <mn>Uc</mn>
+                <mn>n</mn>
+            </msub>
+            <mo>=</mo>
+            <mn>k</mn>
+        </mrow>
+
+    </math>
 
 {% endblock %}
