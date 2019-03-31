@@ -1,9 +1,12 @@
 def sum1(r, n):
+    
     return sum([r**x for x in range(n)])
+
 
 def sum2(r, n):
 
     return ((r ** n) // (r - 1)) - (1 // (r - 1))
+
 
 def run():
     from time import time as t
@@ -19,4 +22,8 @@ def run():
     y = [sum2(*x) for x in data]
     print(t() - start)
 
-    print(set(x) ^ set(y))
+    start = t()
+    z = [sum3(*x) for x in data]
+    print(t() - start)
+
+    print(set(x) ^ set(y) ^ set(z))

@@ -1,6 +1,13 @@
 [
     {
         "href": null,
+        "html": "rice_board",
+        "image": "rice_board/riceboard.png",
+        "color": "text-light",
+        "name": "Effective Riceboard"
+    },
+    {
+        "href": null,
         "html": "random",
         "image": "prng.png",
         "color": "text-light",

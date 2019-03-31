@@ -7,7 +7,7 @@
 <h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Effective Riceboard</h1>
 
 <div class="d-flex justify-content-center">
-    <img src="{{ url_for('static', filename='img/riceboard.png') }}" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+    <img src="{{ url_for('static', filename='img/rice_board/riceboard.png') }}" class="rounded-circle" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
 </div>
 
 <h2>Effective Completion of the Riceboard</h2>
@@ -37,7 +37,7 @@
                 <msup><mi>N</mi><mn>2</mn></msup><mo>-</mo><mn>1</mn>
             </mrow>
         </munderover>
-        <msup><mi>R</mi><mn>x</mn></msup>
+        <msup><mi>R</mi><mi>x</mi></msup>
         <mo>=</mo>
         <mn>T</mn>
 
@@ -54,18 +54,18 @@
     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
 
         <msub>
-            <mn>U</mn>
-            <mrow><mn>n</mn><mo>+</mo><mn>1</mn></mrow>
+            <mi>U</mi>
+            <mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow>
         </msub>
         <mo>=</mo>
         <msub>
-            <mn>U</mn>
-            <mn>n</mn>
+            <mi>U</mi>
+            <mi>n</mi>
         </msub>
         <mo>+</mo>
         <msup>
-            <mn>R</mn>
-            <mn>n</mn>
+            <mi>R</mi>
+            <mi>n</mi>
         </msup>
 
     </math>
@@ -74,267 +74,273 @@
     into a function in terms of <var>n</var>, through which we can then calculate a term independently of any previous terms besides an initial condition.
     To do this we must 'solve' the linear recurrence relationship.</p>
 
-    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
+    <noscript>
+        <img src="{{ url_for('static', filename='img/rice_board/equation.png') }}">
+    </noscript>
 
-        <mtext mathsize="medium">Determine a complementary function based on the coefficient of <msub><mi>U</mi><mi>n</mi></msub></mtext>
-        <mspace linebreak="newline">
+    <div id="script-only" style="display: hidden; visibility: hidden;">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
 
-        <mrow>
-            <msub>
-                <mi>C</mi>
-                <mi>n</mi>
-            </msub>
-            <mo>=</mo>
-            <mi>k</mi>
-            <mo>&times;</mo>
-            <msup>
-                <mn>1</mn>
-                <mi>n</mi>
-            </msup>
-        </mrow>
+            <mtext mathsize="medium">Determine a complementary function based on the coefficient of <msub><mi>U</mi><mi>n</mi></msub></mtext>
+            <mspace linebreak="newline">
 
-        <mspace linebreak='newline'>
-
-        <mrow>
-            <msub>
-                <mi>C</mi>
-                <mi>n</mi>
-            </msub>
-            <mo>=</mo>
-            <mi>k</mi>
-        </mrow>
-
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Determine a trial function based on the non-homogenous part of the linear recurrence</mtext>
-        <mspace linebreak="newline">
-
-        <mrow>
-            <msub>
-                <mi>T</mi>
-                <mi>n</mi>
-            </msub>
-            <mo>=</mo>
-            <mi>&alpha;</mi>
-            <mo>&times;</mo>
-            <msup>
-                <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-        </mrow>
-
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Substitute the trial function into the recurrence relationship definition</mtext>
-        <mspace linebreak="newline">
-
-        <mrow>
-            <mi>&alpha;</mi>
-            <mo>&times;</mo>
-            <msup>
-                <mi>R</mi>
-                <mrow>
+            <mrow>
+                <msub>
+                    <mi>C</mi>
                     <mi>n</mi>
-                    <mo>+</mo>
+                </msub>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo>&times;</mo>
+                <msup>
                     <mn>1</mn>
-                </mrow>
-            </msup>
-            <mo>=</mo>
-            <mi>&alpha;</mi>
-            <mo>&times;</mo>
-            <msup>
+                    <mi>n</mi>
+                </msup>
+            </mrow>
+
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>C</mi>
+                    <mi>n</mi>
+                </msub>
+                <mo>=</mo>
+                <mi>k</mi>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Determine a trial function based on the non-homogenous part of the linear recurrence</mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>T</mi>
+                    <mi>n</mi>
+                </msub>
+                <mo>=</mo>
+                <mi>&alpha;</mi>
+                <mo>&times;</mo>
+                <msup>
+                    <mi>R</mi>
+                    <mi>n</mi>
+                </msup>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Substitute the trial function into the recurrence relationship definition</mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <mi>&alpha;</mi>
+                <mo>&times;</mo>
+                <msup>
+                    <mi>R</mi>
+                    <mrow>
+                        <mi>n</mi>
+                        <mo>+</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </msup>
+                <mo>=</mo>
+                <mi>&alpha;</mi>
+                <mo>&times;</mo>
+                <msup>
+                    <mi>R</mi>
+                    <mi>n</mi>
+                </msup>
+                <mo>+</mo>
+                <msup>
+                    <mi>R</mi>
+                    <mi>n</mi>
+                </msup>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Solving for &alpha;...</mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <mi>&alpha;</mi>
+                <mo>&times;</mo>
                 <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-            <mo>+</mo>
-            <msup>
-                <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-        </mrow>
+                <mo>=</mo>
+                <mi>&alpha;</mi>
+                <mo>+</mo>
+                <mn>1</mn>
+            </mrow>
 
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Solving for &alpha;...</mtext>
-        <mspace linebreak="newline">
+            <mspace linebreak="newline">
 
-        <mrow>
-            <mi>&alpha;</mi>
-            <mo>&times;</mo>
-            <msup>
-                <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-            <mo>=</mo>
-            <mi>&alpha;</mi>
-            <mo>+</mo>
-            <mn>1</mn>
-        </mrow>
+            <mrow>
+                <mi>&alpha;</mi>
+                <mo>&times;</mo>
+                <mfenced open="(" close=")" separators="">
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mfenced>
+                <mo>=</mo>
+                <mn>1</mn>
+            </mrow>
 
-        <mspace linebreak="newline">
+            <mspace linebreak="newline">
 
-        <mrow>
-            <mi>&alpha;</mi>
-            <mo>&times;</mo>
-            <mfenced open="(" close=")" separators="">
+            <mrow>
+                <mi>&alpha;</mi>
+                <mo>=</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Construct a general solution by adding the complementary function to the trial function</mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>U</mi>
+                    <mi>n</mi>
+                </msub>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo>+</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+                <msup>
+                    <mi>R</mi>
+                    <mi>n</mi>
+                </msup>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Produce a value for <mi>k</mi> by substituting an inital condition. Our sequence should start 0, 1, R, hence 
+                <msub><mi>U</mi><mi>0</mi></msub><mo>=</mo><mn>0</mn>
+            </mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>U</mi>
+                    <mn>0</mn>
+                </msub>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo>+</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+                <msup>
+                    <mi>R</mi>
+                    <mi>0</mi>
+                </msup>
+            </mrow>
+
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>U</mi>
+                    <mn>0</mn>
+                </msub>
+                <mo>=</mo>
+                <mn>0</mn>
+            </mrow>
+
+            <mspace linebreak="newline">
+
+            <mrow>
+                <mn>0</mn>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo>+</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+            </mrow>
+
+            <mspace linebreak="newline">
+
+            <mrow>
+                <mi>k</mi>
+                <mo>=</mo>
+                <mo>-</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+            </mrow>
+
+            <mspace linebreak="newline">
+            <mtext mathsize="medium">Combinding all this we get:</mtext>
+            <mspace linebreak="newline">
+
+            <mrow>
+                <msub>
+                    <mi>U</mi>
+                    <mi>n</mi>
+                </msub>
+                <mo>=</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
+                        <mi>R</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
                 <msup>
                     <mi>R</mi>
                     <mi>n</mi>
                 </msup>
                 <mo>-</mo>
-                <mn>1</mn>
-            </mfenced>
-            <mo>=</mo>
-            <mn>1</mn>
-        </mrow>
-
-        <mspace linebreak="newline">
-
-        <mrow>
-            <mi>&alpha;</mi>
-            <mo>=</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <msup>
+                <mfrac>
+                    <mn>1</mn>
+                    <mrow>
                         <mi>R</mi>
-                        <mi>n</mi>
-                    </msup>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-        </mrow>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfrac>
+            </mrow>
 
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Construct a general solution by adding the complementary function to the trial function</mtext>
-        <mspace linebreak="newline">
+        </math>
 
-        <mrow>
-            <msub>
-                <mi>U</mi>
-                <mi>n</mi>
-            </msub>
-            <mo>=</mo>
-            <mi>k</mi>
-            <mo>+</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-            <msup>
-                <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-        </mrow>
+        <a href="{{ url_for('static', filename='img/rice_board/equation.png') }}" download>Not displaying properly? Download PNG</a>
 
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Produce a value for <mi>k</mi> by substituting an inital condition. Our sequence should start 0, 1, R, hence 
-            <msub><mi>U</mi><mi>0</mi></msub><mo>=</mo><mn>0</mn>
-        </mtext>
-        <mspace linebreak="newline">
+        <script>
 
-        <mrow>
-            <msub>
-                <mi>U</mi>
-                <mn>0</mn>
-            </msub>
-            <mo>=</mo>
-            <mi>k</mi>
-            <mo>+</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-            <msup>
-                <mi>R</mi>
-                <mi>0</mi>
-            </msup>
-        </mrow>
+document.getElementById('script-only').style.display = 'block';
+document.getElementById('script-only').style.visibility = 'visible';
 
-        <mspace linebreak="newline">
-
-        <mrow>
-            <msub>
-                <mi>U</mi>
-                <mn>0</mn>
-            </msub>
-            <mo>=</mo>
-            <mn>0</mn>
-        </mrow>
-
-        <mspace linebreak="newline">
-
-        <mrow>
-            <mn>0</mn>
-            <mo>=</mo>
-            <mi>k</mi>
-            <mo>+</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-        </mrow>
-
-        <mspace linebreak="newline">
-
-        <mrow>
-            <mi>k</mi>
-            <mo>=</mo>
-            <mo>-</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-        </mrow>
-
-        <mspace linebreak="newline">
-        <mtext mathsize="medium">Combinding all this we get:</mtext>
-        <mspace linebreak="newline">
-
-        <mrow>
-            <msub>
-                <mi>U</mi>
-                <mi>n</mi>
-            </msub>
-            <mo>=</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-            <msup>
-                <mi>R</mi>
-                <mi>n</mi>
-            </msup>
-            <mo>-</mo>
-            <mfrac>
-                <mn>1</mn>
-                <mrow>
-                    <mi>R</mi>
-                    <mo>-</mo>
-                    <mn>1</mn>
-                </mrow>
-            </mfrac>
-        </mrow>
-
-    </math>
+        </script>
+    </div>
 
 <p class="lead">So, all of that boils down to a fairly general function for calculating the sum of some powers of a number.
     This is a function that can be implemented in programming languages without the need for any recursive patterns or
@@ -345,7 +351,7 @@
     return sum([r**x for x in range(n)])
 
 def sum2(r, n):
-
+    # our double slash '//' is an integer division- identical to normal division but remove the decimal
     return ((r ** n) // (r - 1)) - (1 // (r - 1))
 
 def run():
@@ -362,18 +368,40 @@ def run():
     y = [sum2(*x) for x in data]
     print(t() - start)
 
-    print(set(x) ^ set(y))
+    # this line finds any items that appear only in one of the result sets (XOR of 2 sets). this is to identify any potential issues with the output of the functions
+    print(set(x) ^ set(y))</code></pre>
 
-
-</code></pre>
-
-<p class="lead">Using the summation method, evaluation took around 100 seconds on my machine. Using the mathematical function, evaluation took 0.4 seconds.
-    That's over 200 times faster.<br>
+<p class="lead">Using the summation method, evaluation took around 100 seconds on my machine. Using the mathematical function, evaluation took 0.4 seconds,
+    over 200 times faster.<br>
     You may see however that there's a couple of slight differences between the mathematical definition and the definition I've coded above. There's a reason
-    for this. Python doesn't allow for floating points past a certain size, so therefore we are forced to deal purely with integers. Tt's alright to truncate 
+    for this. Python doesn't allow for floating points past a certain size, so therefore we are forced to deal purely with integers. It's alright to truncate 
     the decimals down to an integer during the division process however, since the fractions that are taken away are purely to turn the decimal back into an
-    integer anyway.</p>
+    integer anyway. The only place where this is different is in the summation of powers of 2, since R - 1 would be just 1, causing an integer sequence.<br><br>
+    Now we know this, how can it work to solve the Riceboard? Knowing the grid size and 'rice gain', we can incredibly quickly sum the total grains of rice on
+    the board:
+    </p>
 
+<pre><code class="python">def sum_powers(r, n):
 
+    return ((r ** n) // (r - 1)) - (1 // (r - 1))
+
+total_squares = GRID_LENGTH ** 2
+
+total_grains = sum_powers(RICE_GAIN, total_squares)</code></pre>
+
+<p class="lead">And now all that's left to do is figure out the left-overs when it's crammed into the bags. This is a simple use case of the modulo operator.
+    The modulo operator just calculates the positive or zero remainder between two numbers. Therefore, it will also tell us how much rice is left after filling
+    as many bags as possible.</p>
+
+<pre><code class="python">def sum_powers(r, n):
+
+    return ((r ** n) // (r - 1)) - (1 // (r - 1))
+
+total_squares = GRID_LENGTH ** 2
+
+total_grains = sum_powers(RICE_GAIN, total_squares)
+
+# our percent symbol '%' is the symbol for modulo in Python and many other languages
+leftover = total_grains % BAG_SIZE</code></pre>
 
 {% endblock %}
