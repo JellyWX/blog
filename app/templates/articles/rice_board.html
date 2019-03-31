@@ -76,8 +76,8 @@
 
     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 16pt;">
 
-        <mtext mathsize="small">Determine a complementary function based on the coefficient of <msub mathsize="small"><mi>U</mi><mi>n</mi></msub></mtext>
-        <mspace linebreak='newline'>
+        <mtext mathsize="medium">Determine a complementary function based on the coefficient of <msub><mi>U</mi><mi>n</mi></msub></mtext>
+        <mspace linebreak="newline">
 
         <mrow>
             <msub>
@@ -104,6 +104,276 @@
             <mi>k</mi>
         </mrow>
 
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Determine a trial function based on the non-homogenous part of the linear recurrence</mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <msub>
+                <mi>T</mi>
+                <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <mi>&alpha;</mi>
+            <mo>&times;</mo>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+        </mrow>
+
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Substitute the trial function into the recurrence relationship definition</mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mi>&alpha;</mi>
+            <mo>&times;</mo>
+            <msup>
+                <mi>R</mi>
+                <mrow>
+                    <mi>n</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                </mrow>
+            </msup>
+            <mo>=</mo>
+            <mi>&alpha;</mi>
+            <mo>&times;</mo>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+            <mo>+</mo>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+        </mrow>
+
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Solving for &alpha;...</mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mi>&alpha;</mi>
+            <mo>&times;</mo>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+            <mo>=</mo>
+            <mi>&alpha;</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+        </mrow>
+
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mi>&alpha;</mi>
+            <mo>&times;</mo>
+            <mfenced open="(" close=")" separators="">
+                <msup>
+                    <mi>R</mi>
+                    <mi>n</mi>
+                </msup>
+                <mo>-</mo>
+                <mn>1</mn>
+            </mfenced>
+            <mo>=</mo>
+            <mn>1</mn>
+        </mrow>
+
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mi>&alpha;</mi>
+            <mo>=</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <msup>
+                        <mi>R</mi>
+                        <mi>n</mi>
+                    </msup>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+        </mrow>
+
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Construct a general solution by adding the complementary function to the trial function</mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <msub>
+                <mi>U</mi>
+                <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+        </mrow>
+
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Produce a value for <mi>k</mi> by substituting an inital condition. Our sequence should start 0, 1, R, hence 
+            <msub><mi>U</mi><mi>0</mi></msub><mo>=</mo><mn>0</mn>
+        </mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <msub>
+                <mi>U</mi>
+                <mn>0</mn>
+            </msub>
+            <mo>=</mo>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+            <msup>
+                <mi>R</mi>
+                <mi>0</mi>
+            </msup>
+        </mrow>
+
+        <mspace linebreak="newline">
+
+        <mrow>
+            <msub>
+                <mi>U</mi>
+                <mn>0</mn>
+            </msub>
+            <mo>=</mo>
+            <mn>0</mn>
+        </mrow>
+
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mn>0</mn>
+            <mo>=</mo>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+        </mrow>
+
+        <mspace linebreak="newline">
+
+        <mrow>
+            <mi>k</mi>
+            <mo>=</mo>
+            <mo>-</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+        </mrow>
+
+        <mspace linebreak="newline">
+        <mtext mathsize="medium">Combinding all this we get:</mtext>
+        <mspace linebreak="newline">
+
+        <mrow>
+            <msub>
+                <mi>U</mi>
+                <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+            <msup>
+                <mi>R</mi>
+                <mi>n</mi>
+            </msup>
+            <mo>-</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mrow>
+                    <mi>R</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </mfrac>
+        </mrow>
+
     </math>
+
+<p class="lead">So, all of that boils down to a fairly general function for calculating the sum of some powers of a number.
+    This is a function that can be implemented in programming languages without the need for any recursive patterns or
+    iterative statements- surely this is much better than our previous summing method..? I briefly benchmarked both's performance
+    on some randomly produced sets of numbers (using Python), and I found the results fairly impressive. The code I used is as below:</p>
+
+<pre><code class="python">def sum1(r, n):
+    return sum([r**x for x in range(n)])
+
+def sum2(r, n):
+
+    return ((r ** n) // (r - 1)) - (1 // (r - 1))
+
+def run():
+    from time import time as t
+    from random import randint as rand
+
+    data = [(rand(2, 2500), rand(1, 1200)) for _ in range(32000)]
+
+    start = t()
+    x = [sum1(*x) for x in data]
+    print(t() - start)
+
+    start = t()
+    y = [sum2(*x) for x in data]
+    print(t() - start)
+
+    print(set(x) ^ set(y))
+
+
+</code></pre>
+
+<p class="lead">Using the summation method, evaluation took around 100 seconds on my machine. Using the mathematical function, evaluation took 0.4 seconds.
+    That's over 200 times faster.<br>
+    You may see however that there's a couple of slight differences between the mathematical definition and the definition I've coded above. There's a reason
+    for this. Python doesn't allow for floating points past a certain size, so therefore we are forced to deal purely with integers. Tt's alright to truncate 
+    the decimals down to an integer during the division process however, since the fractions that are taken away are purely to turn the decimal back into an
+    integer anyway.</p>
+
+
 
 {% endblock %}
