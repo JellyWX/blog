@@ -332,12 +332,19 @@
 
         </math>
 
-        <a href="{{ url_for('static', filename='img/rice_board/equation.png') }}" download>Not displaying properly? Download PNG</a>
+        <button onclick="show_png()">Not displaying properly? Show PNG</button>
+        <img id="image" src="{{ url_for('static', filename='img/rice_board/equation.png') }}" style="display: none;">
 
         <script>
 
 document.getElementById('script-only').style.display = 'block';
 document.getElementById('script-only').style.visibility = 'visible';
+
+function show_png() {
+    element = document.getElementById('image');
+    display = element.style.display;
+    element.style.display = display == 'block' ? 'none' : 'block';
+}
 
         </script>
     </div>
