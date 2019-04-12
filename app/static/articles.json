@@ -7,6 +7,13 @@
         "name": "Effective Riceboard"
     },
     {
+        "href": "https://reminder-bot.com/updates/cautious.md",
+        "html": null,
+        "image": "https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg",
+        "color": "text-light",
+        "name": "Update C"
+    },
+    {
         "href": null,
         "html": "random",
         "image": "prng.png",
