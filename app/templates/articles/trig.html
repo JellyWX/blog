@@ -1,0 +1,28 @@
+{% extends "article.html" %}
+{% block article %}
+
+<h1 class="display-3 text-dark text-center" style="margin-top: 6rem;">Computing Trigonometry</h1>
+
+<div class="d-flex justify-content-center">
+    <img src="{{ url_for('static', filename='img/.png') }}" style="width: 18vw; height: 18vw; margin: 2rem;"></img>
+</div>
+
+<p class="lead">Trigonometric functions are often taken as standard- they are just 'there'.
+    They make an important mathematical abstraction through which we can effectively compare
+    angles and distances between sets of 3 points.
+    <br>
+    The common mathematical reasoning for the values of the <code>sine</code>, <code>cosine</code> and <code>tangent</code>
+    functions is through the unit circle. The unit circle provides a geometric way to visualize
+    the values of the functions at different points.
+    <br>
+    However, in computers it isn't so easy, particularly with the fact that computers can only 
+    represent decimals to a certain degree of precision. However, there are a number of well-developed
+    estimation methods that can be used in computers to calculate trigonometric values.
+    <br>
+    I will be talking about 3 of these here. One is known as the Taylor series, one uses a technique known as 
+    the double-angle rule and another uses a very similar rule to the double-angle rule to shrink down a large
+    angle into a number of smaller angles.
+    <br>
+    Some concepts you may wish to know first are <strong>recursion</strong> and <strong>radians</strong></p>
+
+{% endblock %}

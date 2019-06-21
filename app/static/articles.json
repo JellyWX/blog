@@ -21,13 +21,6 @@
         "name": "PRNG with the LMC"
     },
     {
-        "href": null,
-        "html": "dateparser",
-        "image": "dateparser.png",
-        "color": "text-light",
-        "name": "Dateparser API"
-    },
-    {
         "href": "https://reminder-bot.com/updates/blatant.md",
         "html": null,
         "image": "https://raw.githubusercontent.com/reminder-bot/logos/master/Remind_Me_Bot_Logo_PPic.jpg",
@@ -47,13 +40,6 @@
         "image": "3d/button.png",
         "color": "text-light",
         "name": "3D Pygame Tutorial"
-    },
-    {
-        "href": null,
-        "html": "fusion",
-        "image": "fusion.png",
-        "color": "text-dark",
-        "name": "Fusion"
     },
     {
         "href": "https://soundfx.jellywx.com",
