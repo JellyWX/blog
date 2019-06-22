@@ -25,4 +25,20 @@
     <br>
     Some concepts you may wish to know first are <strong>recursion</strong> and <strong>radians</strong></p>
 
+<h2>Using other mathematical functions to approximate trig</h2>
+
+<p class="lead">The website <a href="https://geogebra.com/graphing">Geogebra</a> is a useful tool for checking
+    the appearence of graphs and functions. If you go to this website, and set up a function of <code>y = sin(x)</code>,
+    it should resemble the shape you're familiar with, passing through zero every interval of π. For particularly
+    small values of <var>x</var>, it can be noted that the sine of <var>x</var> is almost identical to <var>x</var>
+    itself. Take, for example, <code>sin(0.001) = 0.0009999998... ≈ 0.001</code>. 
+    <br>
+    We can make a similar statement about <code>y = cos(x)</code>, but instead by using the function
+    <code>y = 1 - 0.5x<sup>2</sup></code>. We can make the comparison again with <code>cos(0.001) = 0.9999995... ≈ 
+    1 - 0.5 &times; 0.001 (= 0.9999995)<sup>2</sup></code>. You can model the change of this graph on Geogebra:</p>
+
+<img src="{{ url_for('static', filename='img/trig/geogebra.png') }}" style="width: 80vw;"></img>
+
+<p class="lead">So now it's just a case of turning <code>sin(x)</code> into <code>sin(0.001) + sin(0.001) + ... + sin(0.001)</code>.
+
 {% endblock %}
