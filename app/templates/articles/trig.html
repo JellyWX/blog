@@ -40,5 +40,50 @@
 <img src="{{ url_for('static', filename='img/trig/geogebra.png') }}" style="width: 80vw;"></img>
 
 <p class="lead">So now it's just a case of turning <code>sin(x)</code> into <code>sin(0.001) + sin(0.001) + ... + sin(0.001)</code>.
+    And here we'll use a rule that dictates the value of <code>sin(A + B)</code>. Unfortunately, it's not as simple as <code>sin(A) +
+    sin(B)</code>, but its not too far off. The rule can be shown in the diagram below, and states <code>sin(A + B) = sin(A)cos(B) +
+    sin(B)cos(A)</code>, and <code>cos(A + B) = cos(A)cos(B) - sin(A)sin(B)</code>.
+    <br>
+    Using this information, we can define a tree recursive function to compute <code>sin(A)</code> and <code>cos(A)</code>.
+    In a tree-recursive function, we must identify a break condition within our function to ensure that it doesn't enter into
+    a cycle of permenant iteration. Our break condition here will be when the angle is sufficiently small, to just return the angle</p>
+
+<pre><code class="python">from types import FunctionType
+
+precision: float = 0.001
+
+def sin(angle: float) -> float:
+    if -precision < angle < precision:
+        return angle
+
+def cos(angle: float) -> float:
+    func: FunctionType = lambda x: 1 - 0.5 * x ** 2
+
+    if -precision < angle < precision:
+        return func(angle)</code></pre>
+
+<p class="lead">We define a set precision at the beginning, which says at what point we are taking the assumption that the sine function
+    of an angle is equal to the angle. Our comparison here is <code>-p < angle < p</code>, but this can be substituted for <code>abs(angle) < p.
+    Then, this precision is used as a break condition in both of our functions. We also use Python's type annotation notation to denote the
+    types/return types of all the functions and variables we use. I also define a lambda function
+    within the cosine function that maps a real onto the approximation for cosine (no function like this is used in sine, since the function
+    there is <code>f:X = X</code>. Next, we just need to define the <code>else</code> clause of the predicate</p>
+
+<pre><code class="python">from types import FunctionType
+
+precision: float = 0.001
+
+def sin(angle: float) -> float:
+    if -precision < angle < precision:
+        return angle
+    else:
+        return sin(a - precision) * cos(precision) + sin(precision) * cos(a - precision)
+
+def cos(angle: float) -> float:
+    func: FunctionType = lambda x: 1 - 0.5 * x ** 2
+    if -precision < angle < precision:
+        return func(angle)
+    else:
+        return cos(a - precision) * cos(precision) - sin(a - precision) * sin(precision)</code></pre>
 
 {% endblock %}
